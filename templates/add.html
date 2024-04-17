@@ -1,0 +1,23 @@
+{% from "bootstrap5/form.html" import render_form %}
+{% block content %}
+{% include "header.html"%}
+<body style="background-color:#FFD976; color:#3E8DBD">
+    <section>
+        <main class="container">
+            <div class="container align-items-center g-5 py-5 my-5">
+                <h1 class="display-5 fw-bold lh-1 mb-3 text-center">Add a workplace</h1>
+            </div>
+
+          <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary" style="margin-left:25%; margin-right:25%;">
+            <div class="col-lg-6 px-0" style="margin-left:25%; margin-right:25%;">
+                <!--Rendering login form here-->
+             {{render_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+            </div>
+          </div>
+
+        </main>
+
+    </section>
+</body>
+{% include "footer.html" %}
+{% endblock %}

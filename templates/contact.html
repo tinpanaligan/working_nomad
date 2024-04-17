@@ -1,0 +1,14 @@
+{% from "bootstrap5/form.html" import render_form %}
+{% block content %}
+{% include "header.html"%}
+<body>
+    <section>
+        <div class="container align-items-center g-5 py-5 my-5">
+            <h1 class="display-5 fw-bold lh-1 mb-3 text-center">Contact Us</h1>
+            <!--Rendering the login form here-->
+                {{render_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+        </div>
+    </section>
+</body>
+{% include "footer.html" %}
+{% endblock %}

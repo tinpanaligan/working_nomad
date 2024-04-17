@@ -1,0 +1,85 @@
+.text-center {
+    text-align: center!important;
+}
+
+.home_section, .about_section {
+    background-color: #3E8DBD;
+    position: relative;
+    margin-bottom: 3rem;
+    background-size: cover;
+    background-attachment: scroll;
+}
+
+.register_section, .list_places {
+    background-color: #F8F6F1;
+    color: #3E8DBD;
+}
+
+.row {
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+
+h1, h2, h3 {
+    font-family: 'Marko One', serif;
+}
+
+h1 {
+   color: #3E8DBD;
+}
+
+p {
+    font-family: 'Varela Round', sans-serif;
+}
+
+.navbar-brand {
+    font-family: 'Varela Round', sans-serif;
+    background-color: transparent!important;
+}
+
+nav {
+    background-color: transparent!important;
+}
+
+a {
+    font-family: 'Varela Round', sans-serif;
+}
+
+button, .button_class {
+    font-family: 'Varela Round', sans-serif;
+    border-radius: 12px;
+    background-color: #FFD976;
+    border: none;
+    color: #3E8DBD;
+    padding: 15px 30px;
+    margin-top: 10px;
+}
+
+.btn-bd-primary {
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: var(--bd-violet-bg);
+  --bs-btn-border-color: var(--bd-violet-bg);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: #{shade-color($bd-violet, 10%)};
+  --bs-btn-hover-border-color: #{shade-color($bd-violet, 10%)};
+  --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: #{shade-color($bd-violet, 20%)};
+  --bs-btn-active-border-color: #{shade-color($bd-violet, 20%)};
+}
+
+.selected {
+    border-color: #3E8DBD;
+    border-width: thick;
+    background-color: transparent;
+}
+
+div.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #F8F6F1;
+  padding: 50px;
+  font-size: 20px;
+}

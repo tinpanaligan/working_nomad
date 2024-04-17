@@ -1,0 +1,25 @@
+{% include "header.html"%}
+<body>
+    <!-- Home Section -->
+    <section class="home_section">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <p class="lead text-uppercase fw-bold mb-5" style="color: white;">Working Nomad</p>
+                <h2 class="display-5 fw-bold lh-1" style="color: white;">Find a</h2>
+                <h2 class="display-5 fw-bold lh-1" style="color: #FFD976;">cafe</h2>
+                <h2 class="display-5 fw-bold lh-1 mb-3" style="color: white;">to work near you.</h2>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a href="{{ url_for('get_all_places') }}">
+                        <button type="button" class="me-md-2 text-uppercase fw-bold mb-3">Show Me!</button>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="../static/img/home_bg.jpg" class="mx-lg-auto img-fluid" alt="Bootstrap Themes" loading="lazy">   
+            </div>
+        </div>
+    </section>
+    <!-- Bootstrap JS CDN Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+{% include "footer.html" %}

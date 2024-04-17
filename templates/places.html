@@ -1,0 +1,115 @@
+{% include "header.html"%}
+<body class="list_places">
+    <div class="container align-items-center py-5">
+        <div class="container sticky">
+            <h1 class="display-5 fw-bold lh-1 mb-3 text-center">Places to Work Remotely</h1>
+        </div>
+
+
+            <!--List of Places  -->
+            <div class="w3-sidebar">
+
+                <div class="list-group" id="myList">
+
+                    <!-- Place No 1 -->
+                    {% for place in all_places %}
+                    <div class="">
+                        <a href="#" class="list-group-item list-group-item-action py-3"
+                           onclick="changeActiveItem(
+                           this, '{{ place.id }}', '{{ place.place_name }}', '{{ place.address }}',
+                           '{{ place.type }}', '{{ place.average_coffee_rating }}', '{{ place.average_download_mbps }}',
+                            '{{ place.average_upload_mbps }}',  '{{ place.recommendations }}', '{{ place.comments }}')">
+
+
+
+                            <div class="align-items-center">
+                              <h3><strong class="mb-1">{{ place.place_name }}</strong></h3>
+                            </div>
+                            <div class="col-10 mb-1 small">
+                                <p>📍 {{ place.address }}</p>
+                                <p>☕{{ place.average_coffee_rating }}/10</p>
+                                <p>⬇️{{ place.average_download_mbps}} mbps</p>
+                                {% for recommendation in place.recommendations.split(",") %}
+                                <p>👍 {{ recommendation }}</p>
+                                {% endfor %}
+
+<!--                                {% for review in all_reviews %}-->
+<!--                                {% if review.place_id == place.place_id: %}-->
+<!--                                <p>{{ review.recommendation }}</p>-->
+<!--                                {% endif %}-->
+<!--                                {% endfor %}-->
+                            </div>
+                        </a>
+                      </div>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+            <!-- Details of the Place Selected -->
+            <div class="job-details" id="jobDetails" style="margin-left:10%; border-color: thick solid #3E8DBD; background-color: transparent;">
+
+
+            </div>
+
+
+
+
+
+    </div>
+
+
+    <script>
+
+        function changeActiveItem(element, place_id, place_name, address, type, average_coffee_rating,
+            average_download_mbps, average_upload_mbps, recommendations, comments) {
+            // Get Id of jobDetails
+            var jobDetailsElement = document.getElementById('jobDetails');
+
+            // Remove 'active' class from all items in the list
+            $('#myList a').removeClass('selected');
+
+            // Add 'active' class to the clicked item
+            $(element).addClass('selected');
+
+            // Split recommendations into an array
+            // var recommendationsArray = recommendations.split(',');
+            // var commentsArray= comments.split(',');
+            // var all_reviews = JSON.parse(all_reviews);
+
+            // Insert job details as HTML
+            jobDetailsElement.innerHTML = `
+            <div class="row">
+                <h2><strong>${place_name}</strong></h2>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <p>📍 Location: ${address}</p>
+                    <p>⭐ Coffee Rating: ${average_coffee_rating}</p>
+                    <p>💼 Type: ${type}</p>
+                    <p>Number of Visits:</p>
+                    <p>🚀 Download Speed: ${average_download_mbps} Mbps</p>
+                    <p>🚀 Upload Speed: ${average_upload_mbps} Mbps</p>
+
+                    <p>👍 Recommendations:</p>
+                    <ul>${ recommendations }</ul>
+                </div>
+                <div class="col-6">
+                    <p>📞 Contact Number: +62 999 9999</p>
+                    <p>🌐 Website: frankanddean@website.com</p>
+                    <p>🕒 Hours: Closed. Opens 10am Sat.</p>
+                    <p>💬 Comments:</p>
+                    <ul>${comments}</ul>
+
+                </div>
+            </div>
+        `;
+        }
+
+    </script>
+
+
+</body>
+{% include "footer.html" %}

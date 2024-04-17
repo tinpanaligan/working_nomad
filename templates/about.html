@@ -1,0 +1,25 @@
+{% include "header.html"%}
+<body class="about_section">
+    <section>
+        <div class="container col-xxl-8 px-4 py-5">
+        <div class="row g-5 py-5">
+          <div class="col-10 col-sm-8 col-lg-6">
+            <h1 class="display-5 fw-bold lh-1 mb-3" style="color: white;">About Us</h1>
+          </div>
+          <div class="col-lg-6">
+            <p class="lead" style="color: white;">Welcome to Working Nomad—a hub for digital nomads seeking the perfect workspace, no matter where they roam. Our platform simplifies the search for productive environments, vetted by fellow remote workers, ensuring reliable internet and optimal conditions for seamless workdays.</p>
+              <p class="lead" style="color: white;">Inspired by our own experiences of remote work frustrations during global travels, we created Working Nomad to revolutionize how nomads find their ideal workspace. Through crowd-sourced speed tests and detailed user reviews, we've curated a comprehensive database of work-friendly locations worldwide.</p>
+              <p class="lead" style="color: white;">Join us in redefining remote work—one workspace at a time. Welcome to Working Nomad, where work meets adventure.</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                <a href="{{ url_for('contact') }}">
+                    <button type="button" class="me-md-2 text-uppercase fw-bold mb-3">Contact Us!</button>
+                </a>
+            </div>
+
+              <iframe title="AdventureWorks Report" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=5216db9c-bf3e-449e-9c68-31cd05937ebd&autoAuth=true&ctid=6457a036-ad61-4894-837f-1018c4de8c55" frameborder="0" allowFullScreen="true"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+</body>
+{% include "footer.html" %}
