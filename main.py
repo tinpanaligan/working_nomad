@@ -10,17 +10,21 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_ckeditor import CKEditor
 from flask_gravatar import Gravatar
 import smtplib
+import os
 
 # https://flask.palletsprojects.com/en/2.3.x/quickstart/
 app = Flask(__name__)
 # https://flask-wtf.readthedocs.io/en/1.2.x/form/#secure-form
-app.config['SECRET_KEY'] = 'secret_key'
+# app.config['SECRET_KEY'] = 'secret_key'
+app.config['SECRET_KEY'] = os.environ.get("FLASK_KEY")
 # https://bootstrap-flask.readthedocs.io/en/stable/basic/#initialization
 ckeditor = CKEditor()
 Bootstrap5(app)
 
-my_email = "test.email.mcfp@gmail.com"
-my_password = "okauhakjzhykwubp"
+FROM_EMAIL = os.environ.get("FROM_EMAIL")
+FROM_EMAIL_PASSWORD = os.environ.get("FROM_EMAIL_PASSWORD")
+TO_EMAIL = os.environ.get("TO_EMAIL")
+
 
 # Configure Flask-Login
 login_manager = LoginManager()
@@ -44,7 +48,8 @@ gravatar = Gravatar(app,
 # https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/quickstart/#configure-the-extension
 db = SQLAlchemy()
 # configure the SQLite database, relative to the app instance folder
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
+# app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_URI", "sqlite:///project.db")
 # initialize the app with the extension
 db.init_app(app)
 
@@ -170,9 +175,9 @@ def contact():
     if form.validate_on_submit():
         with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
             connection.starttls()
-            connection.login(user=my_email, password=my_password)
+            connection.login(user=FROM_EMAIL, password=FROM_EMAIL_PASSWORD)
             connection.sendmail(
-                from_addr=my_email, to_addrs="test_email_mcfp@yahoo.com",
+                from_addr=FROM_EMAIL, to_addrs=TO_EMAIL,
                 msg=f"Subject:Working Nomad: {form.subject}\n\n{form.message}"
             )
     return render_template('contact.html', form=form)
